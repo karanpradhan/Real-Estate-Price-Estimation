@@ -1,0 +1,9 @@
+clear;
+load ../data/city_train.mat
+load ../data/city_test.mat
+load ../data/word_train.mat
+load ../data/word_test.mat
+load ../data/bigram_train.mat
+load ../data/bigram_test.mat
+load ../data/price_train.mat
+

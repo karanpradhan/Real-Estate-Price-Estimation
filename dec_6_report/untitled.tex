@@ -1,0 +1,31 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote}
+
+\begin{document}
+%Header-Make sure you update this information!!!!
+\noindent
+\large\textbf{   \huge Final Project Descritption Report} \\ \\ \hfill \textbf{Optimus Perceptron} \hfill Teammates: Saurabh Daga, Karan Pradhan, Sibi Vijaykumar
+
+
+\section*{Algorithm 1}
+This algorithm is the one we have used for the submission in the leaderboard folder. It uses Linear SVM provided by the ``Liblinear" package. Also, this algorithm seperates the data with respect to cities as a preprocessing step. The file  corresponding to this algorithm is ``leaderboard\_algo.m". It has other dependencies which are included in the submission. We have used a script called ``addPathScript.m'' which makes the 	dependencies for  liblinear. However, all these scripts have been invoked  internally in the ``leaderboard\_algo.m''. Thus running   ``leaderboard\_algo.m'' will train and predict and the predictions for the test set will be stored in a text file called ``submit.txt''. Also, the submission includes ``searchLiblinear.m" which is invoked in the ``leaderboard\_algo.m" file, is used for cross validation by performing a full grid search on the linear SVM parameters. This algorithm is an example of the \textbf{discriminative method}.
+
+
+
+\section*{Algorithm 2}
+This algorithm uses linear SVM again on data seperated with respect to cities but in this case, we have divided the city 4 data into 2 clusters. We have clustered the data points belonging  only to the fourth city using Gaussian Mixture Models which is an example of a \textbf{Generative Method}. Running the file 	``generative\_algo.m" trains the data and stores the predictions in ``submit\_generative.txt". The script ``addPathScript.m'' is invoked the ``generative\_algo.m" for building the Liblinear package. Also, ``searchLiblinear.m"  is used for cross validation by performing a full grid search on the linear SVM parameters.
+
+
+\section*{Algorithm 3}
+This algorithm uses \textbf{SVM based on a precomputed kernel}. However, we have used PCA for reducing the dimensionality of the data for speeding up SVM. We have used the exponential kernal which is a RBF very similar to the gaussian kernel. The file ``svm\_custom\_kernel\_algo.m'' is used for training and storing the predictions in ``submit\_custom\_kernel.txt". This file again invokes ``addPathScript.m'' for building the libsvm package. The model has been cross validated on the cost parameter C in SVM.
+
+\section*{Algorithm 4}
+This algorithm uses kernel regression which is an example of \textbf{instance based method}. Running ``instance\_based\_algo.m"  trains the data and stores the prediction in ``submit\_instance\_based.txt". The model for this method uses 1000 training data points and has K in the kernel regression to be set as 20 which we observed after 10 folds cross validation. Also, for achieving speed, we have implemented \textbf{semi-supervised dimensionality reduction} using PCA. \footnote{All the code files assume that data is in a directory one level hierarchial above and inside the ``data'' folder. }
+
+
+
+\end{document}

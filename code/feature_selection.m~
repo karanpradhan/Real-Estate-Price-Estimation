@@ -1,0 +1,24 @@
+clear;
+load ./city_seperated_data.mat
+c = cvpartition(size(X_train_1,1),'KFold',10);
+[B(1) fitinfo(1)] = lasso(X_train_1,Y_train_1,'CV',c);
+
+c = cvpartition(size(X_train_2,1),'KFold',10);
+[B(2) fitinfo(2)] = lasso(X_train_2,Y_train_2,'CV',c);
+
+c = cvpartition(size(X_train_3,1),'KFold',10);
+[B(3) fitinfo(3)] = lasso(X_train_3,Y_train_3,'CV',c);
+
+c = cvpartition(size(X_train_4,1),'KFold',10);
+[B(4) fitinfo(4)] = lasso(X_train_4,Y_train_4,'CV',c);
+
+c = cvpartition(size(X_train_5,1),'KFold',10);
+[B(5) fitinfo(5)] = lasso(X_train_5,Y_train_5,'CV',c);
+
+c = cvpartition(size(X_train_6,1),'KFold',10);
+[B(6) fitinfo(6)] = lasso(X_train_6,Y_train_6,'CV',c);
+
+c = cvpartition(size(X_train_7,1),'KFold',10);
+[B(7) fitinfo(7)] = lasso(X_train_7,Y_train_7,'CV',c);
+
+save('lasso_objects_seperate_city_data.mat'
